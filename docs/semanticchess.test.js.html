@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: semanticchess.test.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: semanticchess.test.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * author: Pieter Heyvaert (pheyvaer.heyvaert@ugent.be)
+ * Ghent University - imec - IDLab
+ */
+
+const assert = require('assert');
+const SemanticChess = require('./semanticchess');
+const Utils = require('./utils');
+
+describe('Semantic Chess', function() {
+  it('default', async function() {
+    const chess = new SemanticChess({
+      url: 'http://example.org/myGame',
+      userDataUrl: 'http://example.org/myfile',
+      userWebId: 'http://example.org/#me',
+      opponentWebId: 'http://example.org/#other',
+      name: 'My game',
+      uniqid: Utils.customUniqid
+    });
+
+    const rdf = chess.getMinimumRDF();
+    const expectedRDF = `&lt;http://example.org/myGame>  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type> &lt;http://purl.org/NET/rdfchess/ontology/ChessGame>;
+&lt;http://purl.org/NET/rdfchess/ontology/providesAgentRole> &lt;http://example.org/myfile#1>, &lt;http://example.org/myfile#2>.
+
+&lt;http://example.org/myfile#1> &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type> &lt;http://purl.org/NET/rdfchess/ontology/WhitePlayerRole>;
+&lt;http://purl.org/NET/rdfchess/ontology/performedBy> &lt;http://example.org/#me>.
+
+&lt;http://example.org/myfile#2> &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type> &lt;http://purl.org/NET/rdfchess/ontology/BlackPlayerRole>;
+&lt;http://purl.org/NET/rdfchess/ontology/performedBy> &lt;http://example.org/#other>.
+
+&lt;http://example.org/myGame> &lt;http://schema.org/name> "My game".
+&lt;http://example.org/myGame> &lt;http://purl.org/NET/rdfchess/ontology/startPosition> "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1".
+&lt;http://example.org/myGame> &lt;http://purl.org/NET/rdfchess/ontology/starts> &lt;http://example.org/myfile#1>.`;
+
+    assert.equal(await Utils.compareRDF(rdf, expectedRDF), true, 'The minimum RDF should be the same.');
+    const startPosition = chess.getStartPosition();
+    assert.equal(startPosition, 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1', 'The start position should be the default.');
+    assert.equal(chess.getUserColor(), 'w', 'The user should have the color white.');
+    assert.equal(chess.getOpponentColor(), 'b', 'The opponent should have the color black.');
+    assert.equal(chess.getUrl(), 'http://example.org/myGame', 'The url of the game is not correct.');
+    assert.equal(chess.getName(), 'My game', 'The name of the game is not correct.');
+    assert.equal(chess.getUserDataUrl(), 'http://example.org/myfile', 'The data url of the user is not correct.');
+  });
+
+  it('user is black', async function() {
+    const chess = new SemanticChess({
+      url: 'http://example.org/myGame',
+      userDataUrl: 'http://example.org/myfile',
+      userWebId: 'http://example.org/#me',
+      opponentWebId: 'http://example.org/#other',
+      name: 'My game',
+      colorOfUser: 'b',
+      uniqid: Utils.customUniqid
+    });
+
+    const rdf = chess.getMinimumRDF();
+    const expectedRDF = `&lt;http://example.org/myGame> &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type> &lt;http://purl.org/NET/rdfchess/ontology/ChessGame>;
+&lt;http://purl.org/NET/rdfchess/ontology/providesAgentRole> &lt;http://example.org/myfile#1>, &lt;http://example.org/myfile#2>.
+
+&lt;http://example.org/myfile#1> &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type> &lt;http://purl.org/NET/rdfchess/ontology/WhitePlayerRole>;
+&lt;http://purl.org/NET/rdfchess/ontology/performedBy> &lt;http://example.org/#other>.
+
+&lt;http://example.org/myfile#2> &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type> &lt;http://purl.org/NET/rdfchess/ontology/BlackPlayerRole>;
+&lt;http://purl.org/NET/rdfchess/ontology/performedBy> &lt;http://example.org/#me>.
+
+&lt;http://example.org/myGame> &lt;http://schema.org/name> "My game".
+&lt;http://example.org/myGame> &lt;http://purl.org/NET/rdfchess/ontology/startPosition> "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1".
+&lt;http://example.org/myGame> &lt;http://purl.org/NET/rdfchess/ontology/starts> &lt;http://example.org/myfile#1>.`;
+
+    assert.equal(await Utils.compareRDF(rdf, expectedRDF), true, 'The minimum RDF should be the same.');
+    const startPosition = chess.getStartPosition();
+    assert.equal(startPosition, 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1', 'The start position should be the default.');
+    assert.equal(chess.getUserColor(), 'b', 'The user should have the color black.');
+    assert.equal(chess.getOpponentColor(), 'w', 'The opponent should have the color white.');
+  });
+
+  it('load valid move', async function() {
+    const chess = new SemanticChess({
+      url: 'http://example.org/myGame',
+      userDataUrl: 'http://example.org/myfile',
+      userWebId: 'http://example.org/#me',
+      opponentWebId: 'http://example.org/#other',
+      name: 'My game',
+      uniqid: Utils.customUniqid
+    });
+
+    const startPosition = chess.getStartPosition();
+    assert.equal(startPosition, 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1', 'The start position should be the default.');
+    assert.equal(chess.getUserColor(), 'w', 'The user should have the color white.');
+    assert.equal(chess.getOpponentColor(), 'b', 'The opponent should have the color black.');
+
+    chess.loadMove('e4', {url: 'http://exmaple.org/move/1'});
+    assert.deepEqual(chess.getLastMove(), {san: 'e4', url: 'http://exmaple.org/move/1'});
+  });
+
+  it('load invalid move', async function() {
+    const chess = new SemanticChess({
+      url: 'http://example.org/myGame',
+      userDataUrl: 'http://example.org/myfile',
+      userWebId: 'http://example.org/#me',
+      opponentWebId: 'http://example.org/#other',
+      name: 'My game',
+    });
+
+    const startPosition = chess.getStartPosition();
+    assert.equal(startPosition, 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1', 'The start position should be the default.');
+    assert.equal(chess.getUserColor(), 'w', 'The user should have the color white.');
+    assert.equal(chess.getOpponentColor(), 'b', 'The opponent should have the color black.');
+
+    const r = chess.loadMove('dflklklfdfd', {url: 'http://exmaple.org/move/1'});
+    assert.equal(r, null, 'This should be an invalid move.');
+    assert.deepEqual(chess.getLastMove(), null);
+  });
+
+  it('do valid move', async function() {
+    const chess = new SemanticChess({
+      url: 'http://example.org/myGame',
+      userDataUrl: 'http://example.org/myfile',
+      userWebId: 'http://example.org/#me',
+      opponentWebId: 'http://example.org/#other',
+      name: 'My game',
+      uniqid: Utils.customUniqid
+    });
+
+    const move = chess.doMove('e4');
+    const expectedNotification = `&lt;http://example.org/myGame> &lt;http://purl.org/NET/rdfchess/ontology/hasFirstHalfMove> &lt;http://example.org/myfile#1>.`;
+    const expectedSPARQLUpdate = `INSERT DATA {
+&lt;http://example.org/myGame> &lt;http://purl.org/NET/rdfchess/ontology/hasHalfMove> &lt;http://example.org/myfile#1>.
+
+    &lt;http://example.org/myfile#1> &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type> &lt;http://purl.org/NET/rdfchess/ontology/HalfMove>;
+      &lt;http://purl.org/NET/rdfchess/ontology/hasSANRecord> "e4"^^&lt;http://www.w3.org/2001/XMLSchema#string>.
+&lt;http://example.org/myGame> &lt;http://purl.org/NET/rdfchess/ontology/hasFirstHalfMove> &lt;http://example.org/myfile#1>.
+}`;
+
+    assert.equal(move.sparqlUpdate, expectedSPARQLUpdate, 'The SPARQL update should be the sanme.');
+    assert.equal(await Utils.compareRDF(move.notification, expectedNotification), true, 'The notification should be the same.');
+    assert.deepEqual(chess.getLastMove(), {san: 'e4', url: 'http://example.org/myfile#1'});
+  });
+
+  describe('do invalid mode', function() {
+    it('invalid san', async function () {
+      const chess = new SemanticChess({
+        url: 'http://example.org/myGame',
+        userDataUrl: 'http://example.org/myfile',
+        userWebId: 'http://example.org/#me',
+        opponentWebId: 'http://example.org/#other',
+        name: 'My game',
+        uniqid: Utils.customUniqid
+      });
+
+      const move = chess.doMove('adfadsfasdf');
+
+      assert.equal(move, null, 'The move should be null.');
+      assert.deepEqual(chess.getLastMove(), null);
+    });
+
+    it.skip('not your turn', async function () {
+      const chess = new SemanticChess({
+        url: 'http://example.org/myGame',
+        userDataUrl: 'http://example.org/myfile',
+        userWebId: 'http://example.org/#me',
+        opponentWebId: 'http://example.org/#other',
+        name: 'My game',
+        uniqid: Utils.customUniqid
+      });
+
+    });
+  });
+});
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="SemanticChess.html">SemanticChess</a></li></ul><h3>Global</h3><ul><li><a href="global.html#assert">assert</a></li><li><a href="global.html#auth">auth</a></li><li><a href="global.html#N3">N3</a></li><li><a href="global.html#namespaces">namespaces</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 07 2018 15:26:21 GMT+0100 (CET)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

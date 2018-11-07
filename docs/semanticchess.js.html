@@ -1,4 +1,32 @@
-const namespaces = require('./namespaces');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: semanticchess.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: semanticchess.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const namespaces = require('./namespaces');
 const Chess = require('chess.js').Chess;
 
 /**
@@ -247,23 +275,23 @@ class SemanticChess {
     let notification = null;
 
     sparqlUpdate +=
-    `<${this.url}> <${namespaces.chess}hasHalfMove> <${moveURL}>.
+    `&lt;${this.url}> &lt;${namespaces.chess}hasHalfMove> &lt;${moveURL}>.
 
-    <${moveURL}> <${namespaces.rdf}type> <${namespaces.chess}HalfMove>;
-      <${namespaces.chess}hasSANRecord> "${san}"^^<${namespaces.xsd}string>.\n`;
+    &lt;${moveURL}> &lt;${namespaces.rdf}type> &lt;${namespaces.chess}HalfMove>;
+      &lt;${namespaces.chess}hasSANRecord> "${san}"^^&lt;${namespaces.xsd}string>.\n`;
 
     if (this.lastMove) {
-      sparqlUpdate += `<${this.lastMove.url}> <${namespaces.chess}nextHalfMove> <${moveURL}>.\n`;
-      notification = `<${this.lastMove.url}> <${namespaces.chess}nextHalfMove> <${moveURL}>.`;
+      sparqlUpdate += `&lt;${this.lastMove.url}> &lt;${namespaces.chess}nextHalfMove> &lt;${moveURL}>.\n`;
+      notification = `&lt;${this.lastMove.url}> &lt;${namespaces.chess}nextHalfMove> &lt;${moveURL}>.`;
     } else {
-      sparqlUpdate += `<${this.url}> <${namespaces.chess}hasFirstHalfMove> <${moveURL}>.\n`;
-      notification = `<${this.url}> <${namespaces.chess}hasFirstHalfMove> <${moveURL}>.`;
+      sparqlUpdate += `&lt;${this.url}> &lt;${namespaces.chess}hasFirstHalfMove> &lt;${moveURL}>.\n`;
+      notification = `&lt;${this.url}> &lt;${namespaces.chess}hasFirstHalfMove> &lt;${moveURL}>.`;
     }
 
     // if we have a checkmate we also say that this move is the last move
     if (this.chess.in_checkmate()) {
-      sparqlUpdate += `<${this.url}> <${namespaces.chess}hasLastHalfMove> <${moveURL}>.\n`;
-      notification += `<${this.url}> <${namespaces.chess}hasLastHalfMove> <${moveURL}>.`;
+      sparqlUpdate += `&lt;${this.url}> &lt;${namespaces.chess}hasLastHalfMove> &lt;${moveURL}>.\n`;
+      notification += `&lt;${this.url}> &lt;${namespaces.chess}hasLastHalfMove> &lt;${moveURL}>.`;
     }
 
     sparqlUpdate += `}`;
@@ -303,27 +331,27 @@ class SemanticChess {
         blackWebId = this.userWebId;
       }
 
-      this.minimumRDF = `<${this.url}> <${namespaces.rdf}type> <${namespaces.chess}ChessGame>;\n` +
-        `<${namespaces.chess}providesAgentRole> <${userAgentRole}>, <${opponentAgentRole}>.\n\n` +
+      this.minimumRDF = `&lt;${this.url}> &lt;${namespaces.rdf}type> &lt;${namespaces.chess}ChessGame>;\n` +
+        `&lt;${namespaces.chess}providesAgentRole> &lt;${userAgentRole}>, &lt;${opponentAgentRole}>.\n\n` +
 
-        `<${userAgentRole}> <${namespaces.rdf}type> <${namespaces.chess}WhitePlayerRole>;\n` +
-        `<${namespaces.chess}performedBy> <${whiteWebId}>.\n\n` +
+        `&lt;${userAgentRole}> &lt;${namespaces.rdf}type> &lt;${namespaces.chess}WhitePlayerRole>;\n` +
+        `&lt;${namespaces.chess}performedBy> &lt;${whiteWebId}>.\n\n` +
 
-        `<${opponentAgentRole}> <${namespaces.rdf}type> <${namespaces.chess}BlackPlayerRole>;\n` +
-        `<${namespaces.chess}performedBy> <${blackWebId}>.\n\n`;
+        `&lt;${opponentAgentRole}> &lt;${namespaces.rdf}type> &lt;${namespaces.chess}BlackPlayerRole>;\n` +
+        `&lt;${namespaces.chess}performedBy> &lt;${blackWebId}>.\n\n`;
 
       if (this.name) {
-        this.minimumRDF += `<${this.url}> <http://schema.org/name> "${this.name}".\n`;
+        this.minimumRDF += `&lt;${this.url}> &lt;http://schema.org/name> "${this.name}".\n`;
       }
 
       if (this.startPosition) {
-        this.minimumRDF += `<${this.url}> <${namespaces.chess}startPosition> "${this.startPosition}".\n`;
+        this.minimumRDF += `&lt;${this.url}> &lt;${namespaces.chess}startPosition> "${this.startPosition}".\n`;
       }
 
       if (this.colorOfFirstTurn = 'w') {
-        this.minimumRDF += `<${this.url}> <${namespaces.chess}starts> <${userAgentRole}>.\n`;
+        this.minimumRDF += `&lt;${this.url}> &lt;${namespaces.chess}starts> &lt;${userAgentRole}>.\n`;
       } else if (this.colorOfFirstTurn === 'b') {
-        this.minimumRDF += `<${this.url}> <${namespaces.chess}starts> <${opponentAgentRole}>.\n`;
+        this.minimumRDF += `&lt;${this.url}> &lt;${namespaces.chess}starts> &lt;${opponentAgentRole}>.\n`;
       }
     }
 
@@ -332,3 +360,26 @@ class SemanticChess {
 }
 
 module.exports = SemanticChess;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="SemanticChess.html">SemanticChess</a></li></ul><h3>Global</h3><ul><li><a href="global.html#assert">assert</a></li><li><a href="global.html#auth">auth</a></li><li><a href="global.html#N3">N3</a></li><li><a href="global.html#namespaces">namespaces</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 07 2018 15:26:21 GMT+0100 (CET)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
