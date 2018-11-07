@@ -4,7 +4,8 @@
   "description": "Semantic version of chess.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "doc": "./node_modules/.bin/esdoc"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,9 @@
   },
   "devDependencies": {
     "assert": "^1.4.1",
-    "mocha": "^5.2.0"
+    "jsdoc": "^3.5.5",
+    "mocha": "^5.2.0",
+    "q": "^1.5.1",
+    "rdf-isomorphic": "^1.0.3"
   }
 }
