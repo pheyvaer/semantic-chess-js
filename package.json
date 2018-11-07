@@ -1,0 +1,38 @@
+{
+  "name": "semantic-chess",
+  "version": "0.0.1",
+  "description": "Semantic version of chess.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pheyvaer/semantic-chess-js.git"
+  },
+  "keywords": [
+    "semantic",
+    "rdf",
+    "linked",
+    "data",
+    "chess"
+  ],
+  "author": "Pieter Heyvaert <pheyvaer.heyvaert@ugent.be>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pheyvaer/semantic-chess-js/issues"
+  },
+  "homepage": "https://github.com/pheyvaer/semantic-chess-js#readme",
+  "dependencies": {
+    "@comunica/actor-init-sparql-rdfjs": "^1.4.2",
+    "chess.js": "^0.10.2",
+    "n3": "^1.0.0",
+    "prefix-ns": "^0.1.2",
+    "solid-auth-client": "^2.2.11",
+    "uniqid": "^5.0.3"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "mocha": "^5.2.0"
+  }
+}
