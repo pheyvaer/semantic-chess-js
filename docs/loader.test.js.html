@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Home - Documentation</title>
+    <title>loader.test.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,58 +29,56 @@
 
 <div id="main">
     
+    <h1 class="page-title">loader.test.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * author: Pieter Heyvaert (pheyvaer.heyvaert@ugent.be)
+ * Ghent University - imec - IDLab
+ */
 
+const assert = require('assert');
+const Loader = require('./loader');
 
+describe('Loader', function() {
+  it('default start position, one move white', async function () {
+    const loader = new Loader();
 
+    const game = await loader.loadFromUrl('https://ph_test.solid.community/public/chess_unittest.ttl#game', 'https://ph_test.solid.community/profile/card#me', 'https://ph_test.solid.community/public/chess_unittest.ttl');
 
+    assert.equal(game.getUrl(), 'https://ph_test.solid.community/public/chess_unittest.ttl#game', 'The url of the game is not correct.');
+    assert.equal(game.getUserDataUrl(), 'https://ph_test.solid.community/public/chess_unittest.ttl', 'The data url of the user is not correct.');
+    assert.equal(game.getOpponentWebId(), 'https://ph2.solid.community/profile/card#me', 'The WebId of the opponent is not correct.');
+    assert.deepEqual(game.getLastMove(), {san: 'e3', url: 'https://ph_test.solid.community/public/chess_unittest.ttl#jo8df0y0'}, 'The last move is not correct.');
+    assert.deepEqual(game.getLastUserMove(), {san: 'e3', url: 'https://ph_test.solid.community/public/chess_unittest.ttl#jo8df0y0'}, 'The last move is not correct.');
+    assert.equal(game.getStartPosition(), 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1', 'The start position is not correct.');
+    assert.equal(game.getUserColor(), 'w', 'The color of the user is not correct.');
+  });
 
+  it('custom start position, one move black', async function () {
+    const loader = new Loader();
 
+    const game = await loader.loadFromUrl('https://ph_test.solid.community/public/chess_unittest-2.ttl#game', 'https://ph_test.solid.community/profile/card#me', 'https://ph_test.solid.community/public/chess_unittest-2.ttl');
 
-
-
-    
-
-
-    <section class="readme">
-        <article><h1>Semantic Chess</h1><p>A semantic representation of a chess game in JavaScript that allows doing and loading moves.
-It will generate the corresponding RDF, SPARQL updates, and inbox notifications.
-It is used in <a href="https://github.com/pheyvaer/solid-chess">solid-chess</a>, 
-a decentralized chess game, based on <a href="https://solid.inrupt.com/">Solid</a>.</p>
-<p>The full documentation can be found <a href="https://pheyvaer.github.io/semantic-chess-js">here</a>.</p>
-<h2>Install</h2><p>You can install the library via</p>
-<pre class="prettyprint source lang-shell"><code>npm i semantic-chess</code></pre><h2>Usage</h2><h3>Create a new chess game</h3><p>In the example below we create a new game and do a single move.
-We print the corresponding SPARQL update for that move 
-together the notification that should be send to the inbox of the opponent.</p>
-<pre class="prettyprint source lang-JavaScript"><code>const SemanticChess = require('semantic-chess').SemanticChess;
-
-const chess = new SemanticChess({
-  url: 'http://example.org/mygame',
-  userWebId: 'http://example.org/user1/#me',
-  userDataurl: 'http://example.org/storage/chess.ttl',
-  opponentsWebId: 'http://example.org/user2/#me',
-  name: 'My first chess game!'
+    assert.equal(game.getUrl(), 'https://ph_test.solid.community/public/chess_unittest-2.ttl#game', 'The url of the game is not correct.');
+    assert.equal(game.getUserDataUrl(), 'https://ph_test.solid.community/public/chess_unittest-2.ttl', 'The data url of the user is not correct.');
+    assert.equal(game.getOpponentWebId(), 'https://ph2.solid.community/profile/card#me', 'The WebId of the opponent is not correct.');
+    assert.deepEqual(game.getLastMove(), {san: 'Qxe4', url: 'https://ph2.solid.community/public/chess_unittest-2.ttl#jo8duv1d'}, 'The last move is not correct.');
+    assert.equal(game.getLastUserMove(), null, 'The last move is not correct.');
+    assert.equal(game.getStartPosition(), 'rnb2bnr/pppppppp/8/3q1k2/4P3/8/PPPPP1PP/RNBQKBNR b KQ - 0 1', 'The start position is not correct.');
+    assert.equal(game.getUserColor(), 'w', 'The color of the user is not correct.');
+  });
 });
-
-const move = chess.doMove('e4');
-
-console.log(move.sparqlUpdate);
-// --> 
-
-console.log(move.notification);
-// --></code></pre><h3>Load a chess game via its url</h3><h2>Tests</h2><p>The test are executed via</p>
-<pre class="prettyprint source lang-shell"><code>npm test</code></pre><p>The test files can be found in the folder <code>lib</code> and have the extension <code>test.js</code>.</p>
-<h2>Documentation</h2><p>The documentation is generated via </p>
-<pre class="prettyprint source lang-shell"><code>npm run doc</code></pre><p>You can find the resulting HTML in the folder <code>docs</code>.</p>
-<h2>License</h2><p>© 2018 <a href="https://pieterheyvaert.com">Pieter Heyvaert</a>, <a href="https://github.com/pheyvaer/semantic-chess-js/blob/master/LICENSE.md">MIT License</a></p></article>
+</code></pre>
+        </article>
     </section>
-
-
 
 
 

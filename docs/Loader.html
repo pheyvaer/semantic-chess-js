@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Home - Documentation</title>
+    <title>Loader - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,11 +29,39 @@
 
 <div id="main">
     
+    <h1 class="page-title">Loader</h1>
+    
 
     
 
 
 
+
+<section>
+
+<header>
+    
+        <h2>
+        Loader
+        </h2>
+        
+            <div class="class-description">The Loader allows creating a Semantic Chess instance via information loaded from an url.</div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+<div class="section-method">
+
+    
+    <h2>Constructor</h2>
+    
+
+    <h4 class="name" id="Loader"><span class="type-signature"></span>new Loader<span class="signature">()</span><span class="type-signature"></span></h4>
+
     
 
 
@@ -42,45 +70,308 @@
 
 
 
+<dl class="details">
 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="loader.js.html">loader.js</a>, <a href="loader.js.html#line17">line 17</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="loadFromUrl"><span class="type-signature"></span>loadFromUrl<span class="signature">(gameUrl:, userWebId:, userDataUrl:)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
 
-    <section class="readme">
-        <article><h1>Semantic Chess</h1><p>A semantic representation of a chess game in JavaScript that allows doing and loading moves.
-It will generate the corresponding RDF, SPARQL updates, and inbox notifications.
-It is used in <a href="https://github.com/pheyvaer/solid-chess">solid-chess</a>, 
-a decentralized chess game, based on <a href="https://solid.inrupt.com/">Solid</a>.</p>
-<p>The full documentation can be found <a href="https://pheyvaer.github.io/semantic-chess-js">here</a>.</p>
-<h2>Install</h2><p>You can install the library via</p>
-<pre class="prettyprint source lang-shell"><code>npm i semantic-chess</code></pre><h2>Usage</h2><h3>Create a new chess game</h3><p>In the example below we create a new game and do a single move.
-We print the corresponding SPARQL update for that move 
-together the notification that should be send to the inbox of the opponent.</p>
-<pre class="prettyprint source lang-JavaScript"><code>const SemanticChess = require('semantic-chess').SemanticChess;
 
-const chess = new SemanticChess({
-  url: 'http://example.org/mygame',
-  userWebId: 'http://example.org/user1/#me',
-  userDataurl: 'http://example.org/storage/chess.ttl',
-  opponentsWebId: 'http://example.org/user2/#me',
-  name: 'My first chess game!'
-});
-
-const move = chess.doMove('e4');
-
-console.log(move.sparqlUpdate);
-// --> 
-
-console.log(move.notification);
-// --></code></pre><h3>Load a chess game via its url</h3><h2>Tests</h2><p>The test are executed via</p>
-<pre class="prettyprint source lang-shell"><code>npm test</code></pre><p>The test files can be found in the folder <code>lib</code> and have the extension <code>test.js</code>.</p>
-<h2>Documentation</h2><p>The documentation is generated via </p>
-<pre class="prettyprint source lang-shell"><code>npm run doc</code></pre><p>You can find the resulting HTML in the folder <code>docs</code>.</p>
-<h2>License</h2><p>© 2018 <a href="https://pieterheyvaert.com">Pieter Heyvaert</a>, <a href="https://github.com/pheyvaer/semantic-chess-js/blob/master/LICENSE.md">MIT License</a></p></article>
-    </section>
+<div class="description">
+    This method creates a instance of Semantic Chess, based on a URL that describes the game.
+</div>
 
 
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="loader.js.html">loader.js</a>, <a href="loader.js.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>gameUrl:</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                the url that represents the game
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>userWebId:</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                the WebId of the user
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>userDataUrl:</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                the url of the file where the new data of the user will be stored
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Promise</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    : a promise that resolves with the new instance
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

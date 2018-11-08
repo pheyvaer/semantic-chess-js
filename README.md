@@ -17,12 +17,14 @@ npm i semantic-chess
 
 ## Usage
 
+### Create a new chess game
+
 In the example below we create a new game and do a single move.
 We print the corresponding SPARQL update for that move 
 together the notification that should be send to the inbox of the opponent.
 
 ```JavaScript
-const SemanticChess = require('semantic-chess');
+const SemanticChess = require('semantic-chess').SemanticChess;
 
 const chess = new SemanticChess({
   url: 'http://example.org/mygame',
@@ -40,6 +42,8 @@ console.log(move.sparqlUpdate);
 console.log(move.notification);
 // -->
 ```
+
+### Load a chess game via its url
 
 ## Tests
 
