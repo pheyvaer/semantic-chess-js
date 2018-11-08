@@ -4,7 +4,7 @@
   "description": "Semantic version of chess.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha \"./lib/*test.js\"",
     "doc": "./node_modules/.bin/jsdoc -c jsdoc.json ./lib"
   },
   "repository": {
@@ -14,8 +14,7 @@
   "keywords": [
     "semantic",
     "rdf",
-    "linked",
-    "data",
+    "linked data",
     "chess"
   ],
   "author": "Pieter Heyvaert <pheyvaer.heyvaert@ugent.be>",
