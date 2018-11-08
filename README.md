@@ -51,7 +51,7 @@ console.log(move.notification);
 
 ```
 
-Note that the URLs of the might be different for every run, as a unique id is generated for every move.
+Note that the URLs of the moves might be different for every run, as a unique id is generated for every move.
 
 ### Load a chess game via its url
 
