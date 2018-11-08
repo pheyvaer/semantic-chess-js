@@ -29,7 +29,7 @@ const SemanticChess = require('semantic-chess').SemanticChess;
 const chess = new SemanticChess({
   url: 'http://example.org/mygame',
   userWebId: 'http://example.org/user1/#me',
-  userDataurl: 'http://example.org/storage/chess.ttl',
+  userDataUrl: 'http://example.org/storage/chess.ttl',
   opponentsWebId: 'http://example.org/user2/#me',
   name: 'My first chess game!'
 });
@@ -37,11 +37,21 @@ const chess = new SemanticChess({
 const move = chess.doMove('e4');
 
 console.log(move.sparqlUpdate);
-// --> 
+// INSERT DATA {
+//   <http://example.org/mygame> <http://purl.org/NET/rdfchess/ontology/hasHalfMove> <http://example.org/storage/chess.ttl#ufulmwjo8f4vo7>;
+//     <http://purl.org/NET/rdfchess/ontology/hasFirstHalfMove> <http://example.org/storage/chess.ttl#ufulmwjo8f4vo7>.
+//
+//   <http://example.org/storage/chess.ttl#ufulmwjo8f4vo7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/NET/rdfchess/ontology/HalfMove>;
+//     <http://purl.org/NET/rdfchess/ontology/hasSANRecord> "e4"^^<http://www.w3.org/2001/XMLSchema#string>.
+// }
+ 
 
 console.log(move.notification);
-// -->
+// <http://example.org/mygame> <http://purl.org/NET/rdfchess/ontology/hasFirstHalfMove> <http://example.org/storage/chess.ttl#ufulmwjo8f4vo7>.
+
 ```
+
+Note that the URLs of the might be different for every run, as a unique id is generated for every move.
 
 ### Load a chess game via its url
 
