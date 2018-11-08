@@ -35,6 +35,7 @@
   "devDependencies": {
     "assert": "^1.4.1",
     "jsdoc": "^3.5.5",
+    "minami": "^1.2.3",
     "mocha": "^5.2.0",
     "q": "^1.5.1",
     "rdf-isomorphic": "^1.0.3"

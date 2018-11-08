@@ -2,22 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: semanticchess.js</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>semanticchess.js - Documentation</title>
 
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
 </head>
-
 <body>
 
-<div id="main">
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
 
-    <h1 class="page-title">Source: semanticchess.js</h1>
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Generator.html">Generator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Generator.html#generateFromUrl">generateFromUrl</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="SemanticChess.html">SemanticChess</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#doMove">doMove</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getChess">getChess</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getLastMove">getLastMove</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getLastUserMove">getLastUserMove</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getMinimumRDF">getMinimumRDF</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getName">getName</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getOpponentColor">getOpponentColor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getOpponentWebId">getOpponentWebId</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getStartPosition">getStartPosition</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getUrl">getUrl</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getUserColor">getUserColor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getUserDataUrl">getUserDataUrl</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#isOpponentsTurn">isOpponentsTurn</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#loadMove">loadMove</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#assert">assert</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#auth">auth</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#compareRDF">compareRDF</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#customUniqid">customUniqid</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#N3">N3</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#namespaces">namespaces</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">semanticchess.js</h1>
+    
 
     
 
@@ -35,7 +48,6 @@ const Chess = require('chess.js').Chess;
 class SemanticChess {
 
   /**
-   *
    * @param {Object} options: options to initialize the chess game
    * @param {null|string} options.chess: Chess game from chess.js
    * @param {null|string} options.startPosition: start position of the game, using FEN
@@ -54,8 +66,10 @@ class SemanticChess {
       this.startPosition = options.startPosition; // FEN
     } else {
       if (options.startPosition) {
+        // if there is start position we se the chess game to that
         this.chess = new Chess(options.startPosition);
       } else {
+        // else use default start position
         this.chess = new Chess();
       }
 
@@ -118,7 +132,8 @@ class SemanticChess {
    * Note that opponents turns can only be added via the method loadMove.
    * @param {string} san: the SAN of the move
    * @param {Object} options: the options of the move, inherited from Chess from chess.js
-   * @returns {null|Object}:
+   * @returns {null|{sparqlUpdate: string, notification: string}}: corresponding SPARQL update and inbox notification
+   * that is generated by doing the move
    */
   doMove(san, options) {
     // check if it's the user's turn
@@ -151,9 +166,9 @@ class SemanticChess {
    * `san` is the SAN of the newly loaded move.
    * This method returns null if the SAN of the move is invalid.
    * When multiple moves need to be loaded, they have to be loaded in the order that they are played.
-   * @param {string} san
-   * @param {Object} options
-   * @returns {null|Object}
+   * @param {string} san: SAN of the new move
+   * @param {Object} options: is inherited from Chess.move() from chess.js extended with the key url that represents the move
+   * @returns {null|{url: string, san:string}}: null if the move is invalid or the url and san of the move if valid
    */
   loadMove(san, options) {
     const currentTurn = this.chess.turn();
@@ -180,9 +195,57 @@ class SemanticChess {
   }
 
   /**
+   * This method returns the RDF (Turtle) representation of the game, without any moves.
+   * @returns {string}: RDF representation of the game
+   */
+  getMinimumRDF() {
+    if (!this.minimumRDF) {
+      const userAgentRole = this.userDataUrl + `#` + this.uniqid();
+      const opponentAgentRole = this.userDataUrl + `#` + this.uniqid();
+
+      let whiteWebId;
+      let blackWebId;
+
+      // determine the WebIds per color
+      if (this.colorOfUser === 'w') {
+        whiteWebId = this.userWebId;
+        blackWebId = this.opponentWebId;
+      } else {
+        whiteWebId = this.opponentWebId;
+        blackWebId = this.userWebId;
+      }
+
+      this.minimumRDF = `&lt;${this.url}> &lt;${namespaces.rdf}type> &lt;${namespaces.chess}ChessGame>;\n` +
+        `&lt;${namespaces.chess}providesAgentRole> &lt;${userAgentRole}>, &lt;${opponentAgentRole}>.\n\n` +
+
+        `&lt;${userAgentRole}> &lt;${namespaces.rdf}type> &lt;${namespaces.chess}WhitePlayerRole>;\n` +
+        `&lt;${namespaces.chess}performedBy> &lt;${whiteWebId}>.\n\n` +
+
+        `&lt;${opponentAgentRole}> &lt;${namespaces.rdf}type> &lt;${namespaces.chess}BlackPlayerRole>;\n` +
+        `&lt;${namespaces.chess}performedBy> &lt;${blackWebId}>.\n\n`;
+
+      if (this.name) {
+        this.minimumRDF += `&lt;${this.url}> &lt;http://schema.org/name> "${this.name}".\n`;
+      }
+
+      if (this.startPosition) {
+        this.minimumRDF += `&lt;${this.url}> &lt;${namespaces.chess}startPosition> "${this.startPosition}".\n`;
+      }
+
+      if (this.colorOfFirstTurn = 'w') {
+        this.minimumRDF += `&lt;${this.url}> &lt;${namespaces.chess}starts> &lt;${userAgentRole}>.\n`;
+      } else if (this.colorOfFirstTurn === 'b') {
+        this.minimumRDF += `&lt;${this.url}> &lt;${namespaces.chess}starts> &lt;${opponentAgentRole}>.\n`;
+      }
+    }
+
+    return this.minimumRDF;
+  }
+
+  /**
    * This method returns {san, url} of the last move made, where `san` is the SAN of the move and
    * `url` is the url of the move.
-   * @returns {Object}
+   * @returns {null|{url: string, san: string}}: url that represents the move and SAN that describes the move
    */
   getLastMove() {
     return this.lastMove;
@@ -191,7 +254,7 @@ class SemanticChess {
   /**
    * This method returns {san, url} of the last move made by the user, where `san` is the SAN of the move and
    * `url` is the url of the move.
-   * @returns {*}
+   * @returns {null|{url: string, san: string}}: url that represents the move and SAN that describes the move
    */
   getLastUserMove() {
     return this.lastUserMove;
@@ -255,7 +318,7 @@ class SemanticChess {
 
   /**
    * This method returns the start position (using FEN) of the game.
-   * @returns {string}: starting position of the game
+   * @returns {string|null}: starting position of the game
    */
   getStartPosition() {
     return this.startPosition;
@@ -263,8 +326,9 @@ class SemanticChess {
 
   /**
    * This method adds a new move for the user and generates the corresponding SPARQL update and notification.
-   * @param {string} san
-   * @returns {{sparqlUpdate: string, notification: string}}
+   * @param {string} san: SAN of the new move
+   * @returns {{sparqlUpdate: string, notification: string}}: sparqlUpdate is the SPARQL update representing this move
+   * and the corresponding inbox notification that should be send to the opponent
    * @private
    */
   _addUserMove(san) {
@@ -309,54 +373,6 @@ class SemanticChess {
       notification
     }
   }
-
-  /**
-   * This method returns the RDF (Turtle) representation of the game, without any moves.
-   * @returns {string}: RDF representation of the game
-   */
-  getMinimumRDF() {
-    if (!this.minimumRDF) {
-      const userAgentRole = this.userDataUrl + `#` + this.uniqid();
-      const opponentAgentRole = this.userDataUrl + `#` + this.uniqid();
-
-      let whiteWebId;
-      let blackWebId;
-
-      // determine the WebIds per color
-      if (this.colorOfUser === 'w') {
-        whiteWebId = this.userWebId;
-        blackWebId = this.opponentWebId;
-      } else {
-        whiteWebId = this.opponentWebId;
-        blackWebId = this.userWebId;
-      }
-
-      this.minimumRDF = `&lt;${this.url}> &lt;${namespaces.rdf}type> &lt;${namespaces.chess}ChessGame>;\n` +
-        `&lt;${namespaces.chess}providesAgentRole> &lt;${userAgentRole}>, &lt;${opponentAgentRole}>.\n\n` +
-
-        `&lt;${userAgentRole}> &lt;${namespaces.rdf}type> &lt;${namespaces.chess}WhitePlayerRole>;\n` +
-        `&lt;${namespaces.chess}performedBy> &lt;${whiteWebId}>.\n\n` +
-
-        `&lt;${opponentAgentRole}> &lt;${namespaces.rdf}type> &lt;${namespaces.chess}BlackPlayerRole>;\n` +
-        `&lt;${namespaces.chess}performedBy> &lt;${blackWebId}>.\n\n`;
-
-      if (this.name) {
-        this.minimumRDF += `&lt;${this.url}> &lt;http://schema.org/name> "${this.name}".\n`;
-      }
-
-      if (this.startPosition) {
-        this.minimumRDF += `&lt;${this.url}> &lt;${namespaces.chess}startPosition> "${this.startPosition}".\n`;
-      }
-
-      if (this.colorOfFirstTurn = 'w') {
-        this.minimumRDF += `&lt;${this.url}> &lt;${namespaces.chess}starts> &lt;${userAgentRole}>.\n`;
-      } else if (this.colorOfFirstTurn === 'b') {
-        this.minimumRDF += `&lt;${this.url}> &lt;${namespaces.chess}starts> &lt;${opponentAgentRole}>.\n`;
-      }
-    }
-
-    return this.minimumRDF;
-  }
 }
 
 module.exports = SemanticChess;
@@ -369,17 +385,13 @@ module.exports = SemanticChess;
 
 </div>
 
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="SemanticChess.html">SemanticChess</a></li></ul><h3>Global</h3><ul><li><a href="global.html#assert">assert</a></li><li><a href="global.html#auth">auth</a></li><li><a href="global.html#N3">N3</a></li><li><a href="global.html#namespaces">namespaces</a></li></ul>
-</nav>
-
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 07 2018 15:26:21 GMT+0100 (CET)
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Nov 08 2018 09:12:14 GMT+0100 (CET) using the Minami theme.
 </footer>
 
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
 </body>
 </html>

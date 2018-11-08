@@ -2,22 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: SemanticChess</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SemanticChess - Documentation</title>
 
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
 </head>
-
 <body>
 
-<div id="main">
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
 
-    <h1 class="page-title">Class: SemanticChess</h1>
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Generator.html">Generator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Generator.html#generateFromUrl">generateFromUrl</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="SemanticChess.html">SemanticChess</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#doMove">doMove</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getChess">getChess</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getLastMove">getLastMove</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getLastUserMove">getLastUserMove</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getMinimumRDF">getMinimumRDF</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getName">getName</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getOpponentColor">getOpponentColor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getOpponentWebId">getOpponentWebId</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getStartPosition">getStartPosition</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getUrl">getUrl</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getUserColor">getUserColor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getUserDataUrl">getUserDataUrl</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#isOpponentsTurn">isOpponentsTurn</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#loadMove">loadMove</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#assert">assert</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#auth">auth</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#compareRDF">compareRDF</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#customUniqid">customUniqid</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#N3">N3</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#namespaces">namespaces</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">SemanticChess</h1>
+    
 
     
 
@@ -28,7 +41,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>SemanticChess<span class="signature">(options:)</span><span class="type-signature"></span></h2>
+        <h2>
+        SemanticChess
+        </h2>
         
             <div class="class-description">This is class represents a chess game using semantic annotations.</div>
         
@@ -39,325 +54,16 @@
     <div class="container-overview">
     
         
+<div class="section-method">
 
     
     <h2>Constructor</h2>
     
 
-    
     <h4 class="name" id="SemanticChess"><span class="type-signature"></span>new SemanticChess<span class="signature">(options:)</span><span class="type-signature"></span></h4>
-    
 
     
 
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>options:</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">options to initialize the chess game</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options.chess:</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">null</span>
-|
-
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Chess game from chess.js</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options.startPosition:</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">null</span>
-|
-
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">start position of the game, using FEN</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options.url:</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">url that represents the game</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options.userWebId:</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">WebId of the user</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options.opponentWebId:</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">WebId of the opponent</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options.name:</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">null</span>
-|
-
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">name of the game</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options.lastMove:</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">null</span>
-|
-
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">latest move made in the game</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options.lastUserMove:</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">null</span>
-|
-
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">last move made by the use in the game</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options.colorOfUser:</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">null</span>
-|
-
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">color of the user ('w' or 'b', default is 'w')</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options.uniqid:</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">null</span>
-|
-
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">function that will return a unique id for the moves</td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -412,6 +118,337 @@
 
 
 
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options:</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                options to initialize the chess game
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options.chess:</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>null</code></span>
+|
+
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Chess game from chess.js
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options.startPosition:</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>null</code></span>
+|
+
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                start position of the game, using FEN
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options.url:</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                url that represents the game
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options.userWebId:</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                WebId of the user
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options.opponentWebId:</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                WebId of the opponent
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options.name:</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>null</code></span>
+|
+
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                name of the game
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options.lastMove:</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>null</code></span>
+|
+
+<span class="param-type"><code>Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                latest move made in the game
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options.lastUserMove:</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>null</code></span>
+|
+
+<span class="param-type"><code>Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                last move made by the use in the game
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options.colorOfUser:</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>null</code></span>
+|
+
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                color of the user ('w' or 'b', default is 'w')
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options.uniqid:</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>null</code></span>
+|
+
+<span class="param-type"><code>function</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                function that will return a unique id for the moves
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -421,6 +458,14 @@
 
 
 
+
+
+
+
+
+
+
+</div>
     
     </div>
 
@@ -430,9 +475,7 @@
 
     
 
-    
-
-    
+     
 
     
 
@@ -443,12 +486,11 @@
 
         
             
+<div class="section-method">
 
     
 
-    
     <h4 class="name" id="doMove"><span class="type-signature"></span>doMove<span class="signature">(san:, options:)</span><span class="type-signature"> &rarr; {null|Object}</span></h4>
-    
 
     
 
@@ -461,6 +503,50 @@ It returns null if the move was invalid. For example, when the san is invalid or
 when it's the opponents turn.
 Note that opponents turns can only be added via the method loadMove.
 </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line97">line 97</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
@@ -501,7 +587,7 @@ Note that opponents turns can only be added via the method loadMove.
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
             
@@ -511,7 +597,10 @@ Note that opponents turns can only be added via the method loadMove.
 
             
 
-            <td class="description last">the SAN of the move</td>
+            <td class="description last">
+                the SAN of the move
+                
+            </td>
         </tr>
 
     
@@ -524,7 +613,7 @@ Note that opponents turns can only be added via the method loadMove.
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type"><code>Object</code></span>
 
 
             
@@ -534,7 +623,10 @@ Note that opponents turns can only be added via the method loadMove.
 
             
 
-            <td class="description last">the options of the move, inherited from Chess from chess.js</td>
+            <td class="description last">
+                the options of the move, inherited from Chess from chess.js
+                
+            </td>
         </tr>
 
     
@@ -546,45 +638,6 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line95">line 95</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
 
 
 
@@ -593,49 +646,45 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
-
-
-
-
-
+<div class="section-returns">
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    :
-</div>
 
-
-
-<dl>
+<dl class="param-type">
     <dt>
-        Type
+        Type:
     </dt>
     <dd>
         
-<span class="param-type">null</span>
+<span class="param-type"><code>null</code></span>
 |
 
-<span class="param-type">Object</span>
+<span class="param-type"><code>Object</code></span>
 
 
     </dd>
 </dl>
 
+
+<div class="param-desc">
+    : corresponding SPARQL update and inbox notification
+that is generated by doing the move
+</div>
+
     
+</div>
 
 
 
-
-
+</div>
         
             
+<div class="section-method">
 
     
 
-    
     <h4 class="name" id="getChess"><span class="type-signature"></span>getChess<span class="signature">()</span><span class="type-signature"> &rarr; {Chess}</span></h4>
-    
 
     
 
@@ -649,14 +698,6 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
-
-
-
-
-
-
-
-
 <dl class="details">
 
     
@@ -686,7 +727,7 @@ Note that opponents turns can only be added via the method loadMove.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line192">line 192</a>
+        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line242">line 242</a>
     </li></ul></dd>
     
 
@@ -709,41 +750,49 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
+
+
+
+
+
+
+
+
+<div class="section-returns">
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    : Chess from chess.js
-</div>
 
-
-
-<dl>
+<dl class="param-type">
     <dt>
-        Type
+        Type:
     </dt>
     <dd>
         
-<span class="param-type">Chess</span>
+<span class="param-type"><code>Chess</code></span>
 
 
     </dd>
 </dl>
 
+
+<div class="param-desc">
+    : Chess from chess.js
+</div>
+
     
+</div>
 
 
 
-
-
+</div>
         
             
+<div class="section-method">
 
     
 
-    
-    <h4 class="name" id="getLastMove"><span class="type-signature"></span>getLastMove<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
+    <h4 class="name" id="getLastMove"><span class="type-signature"></span>getLastMove<span class="signature">()</span><span class="type-signature"> &rarr; {null|Object}</span></h4>
 
     
 
@@ -758,14 +807,6 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
-
-
-
-
-
-
-
-
 <dl class="details">
 
     
@@ -795,7 +836,7 @@ Note that opponents turns can only be added via the method loadMove.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line159">line 159</a>
+        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line209">line 209</a>
     </li></ul></dd>
     
 
@@ -818,37 +859,52 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
+
+
+
+
+
+
+
+
+<div class="section-returns">
 <h5>Returns:</h5>
 
         
 
-
-<dl>
+<dl class="param-type">
     <dt>
-        Type
+        Type:
     </dt>
     <dd>
         
-<span class="param-type">Object</span>
+<span class="param-type"><code>null</code></span>
+|
+
+<span class="param-type"><code>Object</code></span>
 
 
     </dd>
 </dl>
 
+
+<div class="param-desc">
+    : url that represents the move and SAN that describes the move
+</div>
+
     
+</div>
 
 
 
-
-
+</div>
         
             
+<div class="section-method">
 
     
 
-    
-    <h4 class="name" id="getLastUserMove"><span class="type-signature"></span>getLastUserMove<span class="signature">()</span><span class="type-signature"> &rarr; {*}</span></h4>
-    
+    <h4 class="name" id="getLastUserMove"><span class="type-signature"></span>getLastUserMove<span class="signature">()</span><span class="type-signature"> &rarr; {null|Object}</span></h4>
 
     
 
@@ -863,14 +919,6 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
-
-
-
-
-
-
-
-
 <dl class="details">
 
     
@@ -900,7 +948,7 @@ Note that opponents turns can only be added via the method loadMove.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line168">line 168</a>
+        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line218">line 218</a>
     </li></ul></dd>
     
 
@@ -923,37 +971,52 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
+
+
+
+
+
+
+
+
+<div class="section-returns">
 <h5>Returns:</h5>
 
         
 
-
-<dl>
+<dl class="param-type">
     <dt>
-        Type
+        Type:
     </dt>
     <dd>
         
-<span class="param-type">*</span>
+<span class="param-type"><code>null</code></span>
+|
+
+<span class="param-type"><code>Object</code></span>
 
 
     </dd>
 </dl>
 
+
+<div class="param-desc">
+    : url that represents the move and SAN that describes the move
+</div>
+
     
+</div>
 
 
 
-
-
+</div>
         
             
+<div class="section-method">
 
     
 
-    
     <h4 class="name" id="getMinimumRDF"><span class="type-signature"></span>getMinimumRDF<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
 
     
 
@@ -967,14 +1030,6 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
-
-
-
-
-
-
-
-
 <dl class="details">
 
     
@@ -1004,7 +1059,7 @@ Note that opponents turns can only be added via the method loadMove.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line289">line 289</a>
+        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line160">line 160</a>
     </li></ul></dd>
     
 
@@ -1027,41 +1082,49 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
+
+
+
+
+
+
+
+
+<div class="section-returns">
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    : RDF representation of the game
-</div>
 
-
-
-<dl>
+<dl class="param-type">
     <dt>
-        Type
+        Type:
     </dt>
     <dd>
         
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
     </dd>
 </dl>
 
+
+<div class="param-desc">
+    : RDF representation of the game
+</div>
+
     
+</div>
 
 
 
-
-
+</div>
         
             
+<div class="section-method">
 
     
 
-    
     <h4 class="name" id="getName"><span class="type-signature"></span>getName<span class="signature">()</span><span class="type-signature"> &rarr; {string|null}</span></h4>
-    
 
     
 
@@ -1075,14 +1138,6 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
-
-
-
-
-
-
-
-
 <dl class="details">
 
     
@@ -1112,7 +1167,7 @@ Note that opponents turns can only be added via the method loadMove.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line224">line 224</a>
+        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line274">line 274</a>
     </li></ul></dd>
     
 
@@ -1135,44 +1190,52 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
+
+
+
+
+
+
+
+
+<div class="section-returns">
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    : name of the game
-</div>
 
-
-
-<dl>
+<dl class="param-type">
     <dt>
-        Type
+        Type:
     </dt>
     <dd>
         
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 |
 
-<span class="param-type">null</span>
+<span class="param-type"><code>null</code></span>
 
 
     </dd>
 </dl>
 
+
+<div class="param-desc">
+    : name of the game
+</div>
+
     
+</div>
 
 
 
-
-
+</div>
         
             
+<div class="section-method">
 
     
 
-    
     <h4 class="name" id="getOpponentColor"><span class="type-signature"></span>getOpponentColor<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
 
     
 
@@ -1186,14 +1249,6 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
-
-
-
-
-
-
-
-
 <dl class="details">
 
     
@@ -1223,7 +1278,7 @@ Note that opponents turns can only be added via the method loadMove.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line184">line 184</a>
+        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line234">line 234</a>
     </li></ul></dd>
     
 
@@ -1246,41 +1301,49 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
+
+
+
+
+
+
+
+
+<div class="section-returns">
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    : 'w' (white) or 'b' (black)
-</div>
 
-
-
-<dl>
+<dl class="param-type">
     <dt>
-        Type
+        Type:
     </dt>
     <dd>
         
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
     </dd>
 </dl>
 
+
+<div class="param-desc">
+    : 'w' (white) or 'b' (black)
+</div>
+
     
+</div>
 
 
 
-
-
+</div>
         
             
+<div class="section-method">
 
     
 
-    
     <h4 class="name" id="getOpponentWebId"><span class="type-signature"></span>getOpponentWebId<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
 
     
 
@@ -1294,14 +1357,6 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
-
-
-
-
-
-
-
-
 <dl class="details">
 
     
@@ -1331,7 +1386,7 @@ Note that opponents turns can only be added via the method loadMove.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line200">line 200</a>
+        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line250">line 250</a>
     </li></ul></dd>
     
 
@@ -1354,41 +1409,49 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
+
+
+
+
+
+
+
+
+<div class="section-returns">
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    : WebId of the opponent
-</div>
 
-
-
-<dl>
+<dl class="param-type">
     <dt>
-        Type
+        Type:
     </dt>
     <dd>
         
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
     </dd>
 </dl>
 
+
+<div class="param-desc">
+    : WebId of the opponent
+</div>
+
     
+</div>
 
 
 
-
-
+</div>
         
             
+<div class="section-method">
 
     
 
-    
-    <h4 class="name" id="getStartPosition"><span class="type-signature"></span>getStartPosition<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
+    <h4 class="name" id="getStartPosition"><span class="type-signature"></span>getStartPosition<span class="signature">()</span><span class="type-signature"> &rarr; {string|null}</span></h4>
 
     
 
@@ -1402,14 +1465,6 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
-
-
-
-
-
-
-
-
 <dl class="details">
 
     
@@ -1439,7 +1494,7 @@ Note that opponents turns can only be added via the method loadMove.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line232">line 232</a>
+        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line282">line 282</a>
     </li></ul></dd>
     
 
@@ -1462,41 +1517,52 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
+
+
+
+
+
+
+
+
+<div class="section-returns">
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    : starting position of the game
-</div>
 
-
-
-<dl>
+<dl class="param-type">
     <dt>
-        Type
+        Type:
     </dt>
     <dd>
         
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
+|
+
+<span class="param-type"><code>null</code></span>
 
 
     </dd>
 </dl>
 
+
+<div class="param-desc">
+    : starting position of the game
+</div>
+
     
+</div>
 
 
 
-
-
+</div>
         
             
+<div class="section-method">
 
     
 
-    
     <h4 class="name" id="getUrl"><span class="type-signature"></span>getUrl<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
 
     
 
@@ -1510,14 +1576,6 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
-
-
-
-
-
-
-
-
 <dl class="details">
 
     
@@ -1547,7 +1605,7 @@ Note that opponents turns can only be added via the method loadMove.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line208">line 208</a>
+        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line258">line 258</a>
     </li></ul></dd>
     
 
@@ -1570,41 +1628,49 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
+
+
+
+
+
+
+
+
+<div class="section-returns">
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    : URL of the game
-</div>
 
-
-
-<dl>
+<dl class="param-type">
     <dt>
-        Type
+        Type:
     </dt>
     <dd>
         
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
     </dd>
 </dl>
 
+
+<div class="param-desc">
+    : URL of the game
+</div>
+
     
+</div>
 
 
 
-
-
+</div>
         
             
+<div class="section-method">
 
     
 
-    
     <h4 class="name" id="getUserColor"><span class="type-signature"></span>getUserColor<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
 
     
 
@@ -1618,14 +1684,6 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
-
-
-
-
-
-
-
-
 <dl class="details">
 
     
@@ -1655,7 +1713,7 @@ Note that opponents turns can only be added via the method loadMove.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line176">line 176</a>
+        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line226">line 226</a>
     </li></ul></dd>
     
 
@@ -1678,41 +1736,49 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
+
+
+
+
+
+
+
+
+<div class="section-returns">
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    : 'w' (white) or 'b' (black)
-</div>
 
-
-
-<dl>
+<dl class="param-type">
     <dt>
-        Type
+        Type:
     </dt>
     <dd>
         
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
     </dd>
 </dl>
 
+
+<div class="param-desc">
+    : 'w' (white) or 'b' (black)
+</div>
+
     
+</div>
 
 
 
-
-
+</div>
         
             
+<div class="section-method">
 
     
 
-    
     <h4 class="name" id="getUserDataUrl"><span class="type-signature"></span>getUserDataUrl<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
 
     
 
@@ -1726,14 +1792,6 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
-
-
-
-
-
-
-
-
 <dl class="details">
 
     
@@ -1763,7 +1821,7 @@ Note that opponents turns can only be added via the method loadMove.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line216">line 216</a>
+        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line266">line 266</a>
     </li></ul></dd>
     
 
@@ -1786,41 +1844,49 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
+
+
+
+
+
+
+
+
+<div class="section-returns">
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    : url of the file where the user wants his data to be stored
-</div>
 
-
-
-<dl>
+<dl class="param-type">
     <dt>
-        Type
+        Type:
     </dt>
     <dd>
         
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
     </dd>
 </dl>
 
+
+<div class="param-desc">
+    : url of the file where the user wants his data to be stored
+</div>
+
     
+</div>
 
 
 
-
-
+</div>
         
             
+<div class="section-method">
 
     
 
-    
     <h4 class="name" id="isOpponentsTurn"><span class="type-signature"></span>isOpponentsTurn<span class="signature">()</span><span class="type-signature"> &rarr; {boolean}</span></h4>
-    
 
     
 
@@ -1834,9 +1900,113 @@ Note that opponents turns can only be added via the method loadMove.
 
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line82">line 82</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>boolean</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    : true if the next half move has to be made by the opponent
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="loadMove"><span class="type-signature"></span>loadMove<span class="signature">(san:, options:)</span><span class="type-signature"> &rarr; {null|Object}</span></h4>
+
+    
+
+
+
+<div class="description">
+    This method load a user's or opponent's move.
+This method returns {url, san}, where `url` is the url of the newly loaded move and
+`san` is the SAN of the newly loaded move.
+This method returns null if the SAN of the move is invalid.
+When multiple moves need to be loaded, they have to be loaded in the order that they are played.
+</div>
 
 
 
@@ -1871,7 +2041,7 @@ Note that opponents turns can only be added via the method loadMove.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line81">line 81</a>
+        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line132">line 132</a>
     </li></ul></dd>
     
 
@@ -1881,66 +2051,6 @@ Note that opponents turns can only be added via the method loadMove.
 
     
 </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    : true if the next half move has to be made by the opponent
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">boolean</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="loadMove"><span class="type-signature"></span>loadMove<span class="signature">(san, options)</span><span class="type-signature"> &rarr; {null|Object}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    This method load a user's or opponent's move.
-This method returns {url, san}, where `url` is the url of the newly loaded move and
-`san` is the SAN of the newly loaded move.
-This method returns null if the SAN of the move is invalid.
-When multiple moves need to be loaded, they have to be loaded in the order that they are played.
-</div>
 
 
 
@@ -1975,13 +2085,13 @@ When multiple moves need to be loaded, they have to be loaded in the order that 
 
         <tr>
             
-                <td class="name"><code>san</code></td>
+                <td class="name"><code>san:</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
             
@@ -1991,20 +2101,23 @@ When multiple moves need to be loaded, they have to be loaded in the order that 
 
             
 
-            <td class="description last"></td>
+            <td class="description last">
+                SAN of the new move
+                
+            </td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>options</code></td>
+                <td class="name"><code>options:</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type"><code>Object</code></span>
 
 
             
@@ -2014,7 +2127,10 @@ When multiple moves need to be loaded, they have to be loaded in the order that 
 
             
 
-            <td class="description last"></td>
+            <td class="description last">
+                is inherited from Chess.move() from chess.js extended with the key url that represents the move
+                
+            </td>
         </tr>
 
     
@@ -2026,45 +2142,6 @@ When multiple moves need to be loaded, they have to be loaded in the order that 
 
 
 
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="semanticchess.js.html">semanticchess.js</a>, <a href="semanticchess.js.html#line130">line 130</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
 
 
 
@@ -2073,37 +2150,37 @@ When multiple moves need to be loaded, they have to be loaded in the order that 
 
 
 
-
-
-
-
-
+<div class="section-returns">
 <h5>Returns:</h5>
 
         
 
-
-<dl>
+<dl class="param-type">
     <dt>
-        Type
+        Type:
     </dt>
     <dd>
         
-<span class="param-type">null</span>
+<span class="param-type"><code>null</code></span>
 |
 
-<span class="param-type">Object</span>
+<span class="param-type"><code>Object</code></span>
 
 
     </dd>
 </dl>
 
+
+<div class="param-desc">
+    : null if the move is invalid or the url and san of the move if valid
+</div>
+
     
+</div>
 
 
 
-
-
+</div>
         
     
 
@@ -2119,17 +2196,13 @@ When multiple moves need to be loaded, they have to be loaded in the order that 
 
 </div>
 
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="SemanticChess.html">SemanticChess</a></li></ul><h3>Global</h3><ul><li><a href="global.html#assert">assert</a></li><li><a href="global.html#auth">auth</a></li><li><a href="global.html#N3">N3</a></li><li><a href="global.html#namespaces">namespaces</a></li></ul>
-</nav>
-
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 07 2018 15:26:21 GMT+0100 (CET)
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Nov 08 2018 09:12:14 GMT+0100 (CET) using the Minami theme.
 </footer>
 
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
 </body>
 </html>

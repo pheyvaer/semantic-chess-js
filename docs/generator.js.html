@@ -2,22 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: generator.js</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>generator.js - Documentation</title>
 
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
 </head>
-
 <body>
 
-<div id="main">
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
 
-    <h1 class="page-title">Source: generator.js</h1>
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Generator.html">Generator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Generator.html#generateFromUrl">generateFromUrl</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="SemanticChess.html">SemanticChess</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#doMove">doMove</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getChess">getChess</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getLastMove">getLastMove</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getLastUserMove">getLastUserMove</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getMinimumRDF">getMinimumRDF</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getName">getName</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getOpponentColor">getOpponentColor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getOpponentWebId">getOpponentWebId</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getStartPosition">getStartPosition</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getUrl">getUrl</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getUserColor">getUserColor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#getUserDataUrl">getUserDataUrl</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#isOpponentsTurn">isOpponentsTurn</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SemanticChess.html#loadMove">loadMove</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#assert">assert</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#auth">auth</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#compareRDF">compareRDF</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#customUniqid">customUniqid</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#N3">N3</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#namespaces">namespaces</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">generator.js</h1>
+    
 
     
 
@@ -35,16 +48,26 @@ const auth = require('solid-auth-client');
 const N3 = require('n3');
 const newEngine = require('@comunica/actor-init-sparql-rdfjs').newEngine;
 const Q = require('q');
+const streamify = require('streamify-array');
 const namespaces = require('./namespaces');
 const SemanticChess = require('./semanticchess');
 
+/**
+ * The generator allows generating a Semantic Chess instance from an url.
+ */
 class Generator {
 
   constructor() {
     this.engine = newEngine();
   }
 
-
+  /**
+   * This method generates a instance of Semantic Chess, based on a URL that describes the game.
+   * @param {string} gameUrl: the url that represents the game
+   * @param {string} userWebId: the WebId of the user
+   * @param {string} userDataUrl: the url of the file where the new data of the user will be stored
+   * @returns {Promise}: a promise that resolves with the new instance
+   */
   generateFromUrl(gameUrl, userWebId, userDataUrl) {
     const deferred = Q.defer();
 
@@ -67,7 +90,7 @@ class Generator {
             } else {
               const source = {
                 match: function (s, p, o, g) {
-                  return require('streamify-array')(store.getQuads(s, p, o, g));
+                  return streamify(store.getQuads(s, p, o, g));
                 }
               };
               const sources = [{type: 'rdfjsSource', value: source}];
@@ -102,6 +125,12 @@ class Generator {
     return deferred.promise;
   }
 
+  /**
+   * This method returns the name of the game.
+   * @param {string} gameUrl: the url that represents the game
+   * @returns {Promise}: a promise that resolves with the name of the game or with null
+   * @private
+   */
   async _getGameName(gameUrl) {
     const deferred = Q.defer();
     const rdfjsSource = await this._getRDFjsSourceFromUrl(gameUrl);
@@ -127,16 +156,23 @@ class Generator {
   }
 
 
-  async _findMove(current, predicate) {
+  /**
+   * This method returns the move that is represented by a url
+   * @param {string} moveUrl: the url of the move
+   * @param predicate: the predicate that connects the current move with the next move
+   * @returns {Promise}: a promise that resolves with an array of moves
+   * @private
+   */
+  async _findMove(moveUrl, predicate) {
     const deferred = Q.defer();
     let results = [];
 
-    const rdfjsSource = await this._getRDFjsSourceFromUrl(current);
+    const rdfjsSource = await this._getRDFjsSourceFromUrl(moveUrl);
     let nextMoveFound = false;
 
     this.engine.query(`SELECT * {
-      OPTIONAL { &lt;${current}> &lt;${namespaces.chess}hasSANRecord> ?san. }
-      OPTIONAL { &lt;${current}> &lt;${predicate}> ?nextMove. }
+      OPTIONAL { &lt;${moveUrl}> &lt;${namespaces.chess}hasSANRecord> ?san. }
+      OPTIONAL { &lt;${moveUrl}> &lt;${predicate}> ?nextMove. }
     } LIMIT 100`,
       {sources: [{type: 'rdfjsSource', value: rdfjsSource}]})
       .then(result => {
@@ -146,7 +182,7 @@ class Generator {
           if (data['?san']) {
             results.push({
               san: data['?san'].value,
-              url: current
+              url: moveUrl
             });
           }
 
@@ -169,6 +205,13 @@ class Generator {
     return deferred.promise;
   }
 
+  /**
+   * This method returns the color of a user.
+   * @param sources: the sources the Comunica engine needs to query
+   * @param userWebId: the WebId of the user
+   * @returns {Promise}: a promise that resolve with either 'w' or 'b'
+   * @private
+   */
   _findUserColor(sources, userWebId) {
     const deferred = Q.defer();
 
@@ -180,9 +223,9 @@ class Generator {
           const role = data.toObject()['?playerRole'].value;
 
           if (role === namespaces.chess + 'WhitePlayerRole') {
-            deferred.resolve('white');
+            deferred.resolve('w');
           } else {
-            deferred.resolve('black');
+            deferred.resolve('b');
           }
         });
       });
@@ -190,6 +233,13 @@ class Generator {
     return deferred.promise;
   }
 
+  /**
+   * This method returns the WebIf of the opponent.
+   * @param sources: the sources used by the Comunica engine to query
+   * @param userWebId: the WebId of the user
+   * @returns {Promise}: a promise that resolves with the WebId of the opponent or null if not found
+   * @private
+   */
   _findWebIdOfOpponent(sources, userWebId) {
     const deferred = Q.defer();
 
@@ -205,12 +255,21 @@ class Generator {
             deferred.resolve(id);
           }
         });
+
+        result.bindingsStream.on('end', function (data) {
+          deferred.resolve(null);
+        });
       });
 
     return deferred.promise;
   }
 
-
+  /**
+   * This method returns the start position of a game
+   * @param {string} gameUrl: url that represents the game
+   * @returns {Promise}: a promise that resolves with the start position of the game or null if not found
+   * @private
+   */
   async _getStartPositionOfGame(gameUrl) {
     const deferred = Q.defer();
     const rdfjsSource = await this._getRDFjsSourceFromUrl(gameUrl);
@@ -236,6 +295,12 @@ class Generator {
   }
 
 
+  /**
+   * This method returns an RDFJSSource of an url
+   * @param {string} url: url of the source
+   * @returns {Promise}: a promise that resolve with the corresponding RDFJSSource
+   * @private
+   */
   _getRDFjsSourceFromUrl(url) {
     const deferred = Q.defer();
 
@@ -280,17 +345,13 @@ module.exports = Generator;
 
 </div>
 
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="SemanticChess.html">SemanticChess</a></li></ul><h3>Global</h3><ul><li><a href="global.html#assert">assert</a></li><li><a href="global.html#auth">auth</a></li><li><a href="global.html#N3">N3</a></li><li><a href="global.html#namespaces">namespaces</a></li></ul>
-</nav>
-
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 07 2018 15:26:21 GMT+0100 (CET)
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Nov 08 2018 09:12:14 GMT+0100 (CET) using the Minami theme.
 </footer>
 
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
 </body>
 </html>

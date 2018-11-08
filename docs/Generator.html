@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>utils.js - Documentation</title>
+    <title>Generator - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,85 +29,349 @@
 
 <div id="main">
     
-    <h1 class="page-title">utils.js</h1>
+    <h1 class="page-title">Generator</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- * author: Pieter Heyvaert (pheyvaer.heyvaert@ugent.be)
- * Ghent University - imec - IDLab
- */
+        <h2>
+        Generator
+        </h2>
+        
+            <div class="class-description">The generator allows generating a Semantic Chess instance from an url.</div>
+        
+    
+</header>
 
-const N3 = require('n3');
-const Q = require('q');
-const {isomorphic} = require('rdf-isomorphic');
+<article>
+    <div class="container-overview">
+    
+        
+<div class="section-method">
 
-/**
- * This method returns a unique id, based on a counter.
- * This method is used for testing.
- * @returns {function(): number}: a function that always returns a new number
- */
-function customUniqid() {
-  let counter = 0;
+    
+    <h2>Constructor</h2>
+    
 
-  return function() {
-    counter ++;
+    <h4 class="name" id="Generator"><span class="type-signature"></span>new Generator<span class="signature">()</span><span class="type-signature"></span></h4>
 
-    return counter;
-  };
-}
+    
 
-/**
- * This method compares two RDF strings.
- * This method is used for testing.
- * @param rdfStr1: the first RDF string
- * @param rdfStr2: the second RDF string
- * @returns {Promise&lt;void>}: a promise that resolves with true if the RDF strings are semantically the same, else false
- */
-async function compareRDF(rdfStr1, rdfStr2) {
-  const quads1 = await _getQuads(rdfStr1);
-  const quads2 = await _getQuads(rdfStr2);
 
-  return isomorphic(quads1, quads2);
-}
 
-/**
- * This method returns an array of quads extracted from an string with RDF
- * @param rdfStr: the RDF string
- * @returns {*|PromiseLike&lt;any>}: a promise that resolves with an array of Quads
- * @private
- */
-function _getQuads(rdfStr) {
-  const deferred = Q.defer();
-  const quads = [];
-  const parser = new N3.Parser();
 
-  parser.parse(rdfStr, (err, quad) => {
-    if (err) {
-      deferred.reject(err);
-    } else if (quad) {
-      quads.push(quad);
-    } else {
-      deferred.resolve(quads);
-    }
-  });
 
-  return deferred.promise;
-}
 
-module.exports = {
-  customUniqid,
-  compareRDF
-};
-</code></pre>
-        </article>
-    </section>
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="generator.js.html">generator.js</a>, <a href="generator.js.html#line17">line 17</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="generateFromUrl"><span class="type-signature"></span>generateFromUrl<span class="signature">(gameUrl:, userWebId:, userDataUrl:)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+    
+
+
+
+<div class="description">
+    This method generates a instance of Semantic Chess, based on a URL that describes the game.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="generator.js.html">generator.js</a>, <a href="generator.js.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>gameUrl:</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                the url that represents the game
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>userWebId:</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                the WebId of the user
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>userDataUrl:</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                the url of the file where the new data of the user will be stored
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Promise</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    : a promise that resolves with the new instance
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
