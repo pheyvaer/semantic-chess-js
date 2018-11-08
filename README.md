@@ -55,6 +55,17 @@ Note that the URLs of the moves might be different for every run, as a unique id
 
 ### Load a chess game via its url
 
+In the example below we load a game from its url.
+We also need to provide the WebId of the current user, so the game know when a move is valid.
+Furthermore, the base URL that is used for new moves is also provided.
+
+```JavaScript
+const Loader = require('./index').Loader;
+
+const loader = new Loader();
+const chess = await loader.loadFromUrl('http://example.org/mygame', 'http://example.org/user1/#me', 'http://example.org/storage/chess.ttl');
+```
+
 ## Tests
 
 The test are executed via
