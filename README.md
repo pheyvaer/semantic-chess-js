@@ -61,7 +61,7 @@ Furthermore, the base URL that is used for new moves is also provided.
 This can either be a string or a function that returns a string.
 
 ```JavaScript
-const Loader = require('./index').Loader;
+const Loader = require('semantic-chess').Loader;
 
 const loader = new Loader();
 const chess = await loader.loadFromUrl('http://example.org/mygame', 'http://example.org/user1/#me', 'http://example.org/storage/chess.ttl');
