@@ -1,6 +1,6 @@
 # Semantic Chess
 
-A semantic representation of a chess game that allows doing and loading moves.
+A semantic representation of a chess game in JavaScript that allows doing and loading moves.
 It will generate the corresponding RDF, SPARQL updates, and inbox notifications.
 
 ## Install
