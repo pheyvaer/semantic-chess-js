@@ -29,7 +29,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - add resulting position (encoded using FEN) after move to SPARQL update
 
-[0.0.5]: https://github.com/RMLio/rmlmapper-java/compare/v0.0.4...v0.0.5
-[0.0.4]: https://github.com/RMLio/rmlmapper-java/compare/v0.0.3...v0.0.4
-[0.0.3]: https://github.com/RMLio/rmlmapper-java/compare/v0.0.2...v0.0.3
-[0.0.2]: https://github.com/RMLio/rmlmapper-java/compare/v0.0.1...v0.0.2
+[0.0.5]: https://github.com/pheyvaer/semantic-chess-js/compare/v0.0.4...v0.0.5
+[0.0.4]: https://github.com/pheyvaer/semantic-chess-js/compare/v0.0.3...v0.0.4
+[0.0.3]: https://github.com/pheyvaer/semantic-chess-js/compare/v0.0.2...v0.0.3
+[0.0.2]: https://github.com/pheyvaer/semantic-chess-js/compare/v0.0.1...v0.0.2
