@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/pheyvaer/semantic-chess-js#readme",
   "dependencies": {
+    "@solid/query-ldflex": "^1.1.1",
     "@comunica/actor-init-sparql-rdfjs": "^1.4.2",
     "chess.js": "^0.10.2",
     "n3": "^1.0.0",
