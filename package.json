@@ -1,6 +1,6 @@
 {
   "name": "semantic-chess",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Semantic version of chess.js",
   "main": "index.js",
   "scripts": {
