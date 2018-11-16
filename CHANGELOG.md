@@ -46,7 +46,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - add resulting position (encoded using FEN) after move to SPARQL update
 
-[0.0.6]: https://github.com/pheyvaer/semantic-chess-js/compare/v0.0.6...v0.0.7
+[0.0.7]: https://github.com/pheyvaer/semantic-chess-js/compare/v0.0.6...v0.0.7
 [0.0.6]: https://github.com/pheyvaer/semantic-chess-js/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/pheyvaer/semantic-chess-js/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/pheyvaer/semantic-chess-js/compare/v0.0.3...v0.0.4
