@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.0.7] - 2018-11-16
+
+### Added
+
+- link move and game via [schema:subEvent](http://schema.org/subEvent)
+
 ## [0.0.6] - 2018-11-09
 
 ### Added
@@ -40,6 +46,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - add resulting position (encoded using FEN) after move to SPARQL update
 
+[0.0.6]: https://github.com/pheyvaer/semantic-chess-js/compare/v0.0.6...v0.0.7
 [0.0.6]: https://github.com/pheyvaer/semantic-chess-js/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/pheyvaer/semantic-chess-js/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/pheyvaer/semantic-chess-js/compare/v0.0.3...v0.0.4
