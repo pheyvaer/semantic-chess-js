@@ -56,14 +56,17 @@ Note that the URLs of the moves might be different for every run, as a unique id
 ### Load a chess game via its url
 
 In the example below we load a game from its url.
+The Loader needs a fetch function that will be used to fetch the data.
+The fetch from `solid-auth-client` is a possibility.
 We also need to provide the WebId of the current user, so the game know when a move is valid.
 Furthermore, the base URL that is used for new moves is also provided.
 This can either be a string or a function that returns a string.
 
 ```JavaScript
 const Loader = require('semantic-chess').Loader;
+const auth = require('solid-auth-client);
 
-const loader = new Loader();
+const loader = new Loader(auth.fetch);
 const chess = await loader.loadFromUrl('http://example.org/mygame', 'http://example.org/user1/#me', 'http://example.org/storage/chess.ttl');
 ```
 
