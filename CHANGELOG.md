@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 2018-12-20
+
+### Added
+
+- support for real time games
+- support for giving up on a game
+
+## [0.1.0] - 2018-12-08
+
+### Removed
+- dependency on [`solid-auth-client`](https://github.com/solid/solid-auth-client), so you can use custom fetch function
+- dependency on [LDflex for Solid](https://github.com/solid/query-ldflex) to make it independent of Solid
+
 ## [0.0.7] - 2018-11-16
 
 ### Added
@@ -46,6 +59,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - add resulting position (encoded using FEN) after move to SPARQL update
 
+[0.2.0]: https://github.com/pheyvaer/semantic-chess-js/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/pheyvaer/semantic-chess-js/compare/v0.0.7...v0.1.0
 [0.0.7]: https://github.com/pheyvaer/semantic-chess-js/compare/v0.0.6...v0.0.7
 [0.0.6]: https://github.com/pheyvaer/semantic-chess-js/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/pheyvaer/semantic-chess-js/compare/v0.0.4...v0.0.5

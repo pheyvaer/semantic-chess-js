@@ -1,6 +1,6 @@
 {
   "name": "semantic-chess",
-  "version": "0.0.7",
+  "version": "0.2.0",
   "description": "Semantic version of chess.js",
   "main": "index.js",
   "scripts": {
@@ -24,12 +24,10 @@
   },
   "homepage": "https://github.com/pheyvaer/semantic-chess-js#readme",
   "dependencies": {
-    "@solid/query-ldflex": "^1.1.1",
     "@comunica/actor-init-sparql-rdfjs": "^1.4.2",
     "chess.js": "^0.10.2",
     "n3": "^1.0.0",
     "prefix-ns": "^0.1.2",
-    "solid-auth-client": "^2.2.11",
     "uniqid": "^5.0.3"
   },
   "devDependencies": {
@@ -38,6 +36,7 @@
     "minami": "^1.2.3",
     "mocha": "^5.2.0",
     "q": "^1.5.1",
-    "rdf-isomorphic": "^1.0.3"
+    "rdf-isomorphic": "^1.0.3",
+    "solid-auth-client": "^2.2.11"
   }
 }
